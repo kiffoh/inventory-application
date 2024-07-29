@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Update Job</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <%- include('header') %>
+    <h1>Update Job</h1>
+    <form action="/companies/<%= companyId %>/jobs/<%= jobId %>/update" method="post"><!--Previous action="/companies/<%= companyId %>/new-job". As I do not have an individual company page yet I am going to send the user back to the companies page-->
+      <label for="title">Job Title:</label>
+      <input type="text" id="title" name="title" value="<%= jobInfo.job_title %>" required><br><br>
+      
+      <label for="location">Location:</label>
+      <input type="text" id="location" name="location" value="<%= jobInfo.job_location %>" required><br><br>
+      
+      <label for="description">Job Description:</label>
+      <textarea id="description" name="description" rows="4" cols="50" required><%= jobInfo.job_description %></textarea><br><br>
+
+      <label for="job_date_posted">Date Posted</label>
+      <input type="text" id="job_date_posted" name="job_date_posted" value="<%= jobInfo.job_date_posted %>" required>
+      
+      <button type="submit">Update Job</button>
+
+      <a href="/companies/<%= companyId %>/jobs/<%= jobId %>/">Back</a>
+    </form>
+  </body>
+</html>

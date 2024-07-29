@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= jobInfo[0].company_name %> profile</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <%- include('header') %>
+    <ul>
+      <% jobInfo.map(company => { %>
+        <h1><%= company.company_name %></h1>
+
+        <ul>
+            <strong><%= company.job_title %></strong>
+            <li><%= company.job_location %></li>
+            <li>Job description: <%= company.job_description %></li>
+            <li>Date posted: <%= company.job_date_posted %></li>
+            <br>
+        </ul>
+        <a href="/companies/<%= company.company_id %>/jobs/<%= company.job_id %>/update">Update</a>
+        <a href="/companies/<%= company.company_id %>/jobs/<%= company.job_id %>/delete">Delete</a>
+        <a href="/companies/<%= company.company_id %>/">Back</a>
+        <!--<a href="/companies/<%= company.id %>/new-job">Add Job</a> -->
+      <% }) %>
+    </ul>
+  </body>
+</html>

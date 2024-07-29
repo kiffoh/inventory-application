@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Available Jobs</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <%- include('header') %>
+    <h1>Available Jobs:</h1>
+    <ul>
+      <% jobs.map(job => { %>
+        <strong><%= job.job_title %></strong>
+        <li><%= job.job_location %></li>
+        <li>Company: <%= job.company_name %></li>
+        <li>Job description: <%= job.job_description %></li>
+        <li>Date posted: <%= job.job_date_posted %></li>
+        <br>
+      <% }) %>
+    </ul>
+  </body>
+</html>

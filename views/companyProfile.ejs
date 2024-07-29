@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= company[0].name %> profile</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <%- include('header') %>
+    <ul>
+      <% company.map(company => { %>
+        <h1><%= company.name %></h1>
+
+        <h4>Sectors:</h4>
+        <ul>
+        <% company.sectors.map(sector => { %>
+            <li><%= sector %></li>
+        <% }) %>
+        </ul>
+
+        <h4>Awards:</h4>
+        <ul>
+        <% company.awards.map(award => { %>
+            <li><%= award.award_name %></li>
+        <% }) %>
+        </ul>
+
+        <h4>Available Jobs:</h4>
+        <ul>
+        <% company.jobs.map(job => { %>
+            <li><%= job.job_title %></li>
+            <a href="/companies/<%= company.id %>/jobs/<%= job.job_id %>">View Job</a>
+        <% }) %>
+
+        </ul>
+        <a href="/companies/<%= company.id %>/new-job">Add Job</a>
+        <!--<a href="/companies/<%= company.id %>/new-job">Add Job</a> -->
+      <% }) %>
+    </ul>
+  </body>
+</html>
